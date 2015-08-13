@@ -1,5 +1,12 @@
 一、填空题<br>
-1. UML 的中文全称是:<input type="text" name="questionOne" value=""><br>
-2. 对象最突出的特征是:<input type="text" name="questionTwo" value="">、
-                      <input type="text" name="questionTwo" value="">、
-                      <input type="text" name="questionTwo" value=""><br>
+
+<ol>
+    <% topic.forEach(function(item){ %>
+        <li>
+            <%= item.question%>
+            <% item.options.forEach(function(element,i){ %>
+                <input type="text" name="<%= item.name%>" value="<%= item.value[i]%>">、
+            <%})%>
+        </li>
+    <%})%>
+</ol>

@@ -4,12 +4,12 @@
     统一建模语言理论测试
     <br>
     <form class="" action="/" method="post">
-        <%- include('./partial/index/_header') -%>
-        <%- include('./partial/index/_fill') -%>
-        <%- include('./partial/index/_single-choice') -%>
-        <%- include('./partial/index/_multiple-choice') -%>
-        <%- include('./partial/index/_true-or-false') -%>
-        <%- include('./partial/index/_short-answer.ejs') -%>
+        <%- include('./partial/index/_header', {user: userData}) %>
+        <%- include('./partial/index/_fill', {topic: data.Fill}) %>
+        <%- include('./partial/index/_single-choice', {topic: data.SingleChoice}) %>
+        <%- include('./partial/index/_multiple-choice', {topic: data.MultipleChoice}) %>
+        <%- include('./partial/index/_true-or-false', {topic: data.TrueOrFalse}) %>
+        <%- include('./partial/index/_short-answer.ejs', {topic: data.ShortAnswer}) %>
         <button type="submit">提交</button>
     </form>
 <%- include('./partial/_foot') -%>

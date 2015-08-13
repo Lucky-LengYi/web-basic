@@ -1,4 +1,10 @@
 五、简答题(每题4分,共20分)
 <br>
-1. 简述什么是模型以及模型的表现形式? <br>
-<textarea name="questionNine" rows="8" cols="40"></textarea><br>
+<ol>
+    <% topic.forEach(function(item){ %>
+        <li>
+            <%= item.question%><br>
+            <textarea name="<%= item.name%>" rows="8" cols="40"><%= item.value%></textarea><br>
+        </li>
+    <%})%>
+</ol>
