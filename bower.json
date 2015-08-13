@@ -1,0 +1,19 @@
+{
+  "name": "8-13",
+  "version": "0.0.0",
+  "authors": [
+    "Lucky-LengYi <meeting_love_lengyi@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/Lucky-LengYi/web-basic",
+  "dependencies": {
+    "lodash": "~3.10.1"
+  }
+}
