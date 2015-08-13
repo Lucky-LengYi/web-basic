@@ -1,13 +1,16 @@
-二、选择题
-<br>
-<ol>
-    <% topic.forEach(function(item){ %>
-        <li>
-            <%= item.question%><br>
-            <% item.options.forEach(function(element,i){ %>
-                <input type="radio" name="<%= item.name%>" value="<%= element.key%>"
-                <% if(item.value===element.key){ %> checked="checked" <% } %> ><%= element.key%>、<%= element.val%><br>
+<div class="panel panel-default">
+    <div class="panel-heading">二、选择题</div>
+    <div class="panel-body">
+        <ol>
+            <% topic.forEach(function(item){ %>
+                <li>
+                    <%= item.question%><br>
+                    <% item.options.forEach(function(element,i){ %>
+                        <input type="radio" name="<%= item.name%>" value="<%= element.key%>"
+                        <% if(item.value===element.key){ %> checked="checked" <% } %> ><%= element.key%>、<%= element.val%><br>
+                    <%})%><br>
+                </li>
             <%})%>
-        </li>
-    <%})%>
-</ol>
+        </ol>
+    </div>
+</div>
