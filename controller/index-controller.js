@@ -21,8 +21,11 @@ function getScore(req, res) {
     var userData = req.body;
     var data = loadAllQuestion();
     var helperTopic = new HelperTopic();
+
+    helperTopic.fractionalStatistics(userData,data);
+    helperTopic.gatValue(userData,data);
     data = helperTopic.classify(data);
-    
+
     rederIndexPage(req, res, {
         userData: userData,
         data:data

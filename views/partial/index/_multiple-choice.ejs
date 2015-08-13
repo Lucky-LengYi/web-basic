@@ -5,7 +5,8 @@
         <li>
             <%= item.question%><br>
             <% item.options.forEach(function(element,i){ %>
-                <input type="checkbox" name="<%= item.name%>" value="<%= element.key%>"><%= element.key%>、<%= element.val%><br>
+                <input type="checkbox" name="<%= item.name%>" value="<%= element.key%>"
+                <% if(item.value.indexOf(element.key) !== -1){ %> checked="checked" <% } %> ><%= element.key%>、<%= element.val%><br>
             <%})%>
         </li>
     <%})%>

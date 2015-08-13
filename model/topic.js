@@ -9,7 +9,7 @@ function Topic(name, question, options, answer, score, type, value) {
 }
 
 Topic.prototype.calculationScore = function () {
-
+    
 };
 
 module.exports = Topic;
