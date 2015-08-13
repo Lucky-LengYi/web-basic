@@ -1,0 +1,82 @@
+{
+    "data": [
+        ["questionOne", "UML 的中文全称是:", [""],
+            ["统一建模语言"], 1, "Fill", []
+        ],
+        ["questionTwo", "对象最突出的特征是:", ["", "", ""],
+            ["封装", "继承", "多态"], 1, "Fill", []
+        ],
+        ["questionThree", "UML 与软件工程的关系是", [{
+            "key": "A",
+            "val": "UML 就是软件工程"
+        }, {
+            "key": "B",
+            "val": "UML 参与到软件工程中软件开发过程的几个阶段"
+        }, {
+            "key": "C",
+            "val": "UML 与软件工程无关"
+        }, {
+            "key": "D",
+            "val": "UML 是软件工程的一部分"
+        }], "B", 2, "SingleChoice", ""],
+        ["questionFour", "Java 语言支持", [{
+            "key": "A",
+            "val": "单继承"
+        }, {
+            "key": "B",
+            "val": "多继承"
+        }, {
+            "key": "C",
+            "val": "单继承和多继承都支持"
+        }, {
+            "key": "D",
+            "val": "单继承和多继承都不支持"
+        }], "A", 2, "SingleChoice", ""],
+        ["questionFive", "用例的粒度分为以下哪三种。", [{
+                "key": "A",
+                "val": "概述级"
+            }, {
+                "key": "B",
+                "val": "需求级"
+            }, {
+                "key": "C",
+                "val": "用户目标级"
+            }, {
+                "key": "D",
+                "val": "子功能级"
+            }],
+            ["A", "B", "D"], 6, "MultipleChoice", []
+        ],
+        ["questionSix", "类图由以下哪三部分组成。", [{
+                "key": "A",
+                "val": "名称(Name)"
+            }, {
+                "key": "B",
+                "val": "属性(Attribute)"
+            }, {
+                "key": "C",
+                "val": "操作(Operation)"
+            }, {
+                "key": "D",
+                "val": "方法(Function)"
+            }],
+            ["A", "B", "C"], 6, "MultipleChoice", []
+        ],
+        ["questionSeven", "用例图只是用于和客户交流和沟通的,用于确定需求。", [{
+            "key": "true",
+            "val": "正确"
+        }, {
+            "key": "false",
+            "val": "错误"
+        }], "false", 2, "TrueOrFalse", ""],
+        ["questionEight", "在状态图中,终止状态在一个状态图中允许有任意多个。", [{
+            "key": "true",
+            "val": "正确"
+        }, {
+            "key": "false",
+            "val": "错误"
+        }], "true", 2, "TrueOrFalse", ""],
+        ["questionNine", "简述什么是模型以及模型的表现形式?", [],
+        "", 5, "ShortAnswer", ""]
+    ]
+}

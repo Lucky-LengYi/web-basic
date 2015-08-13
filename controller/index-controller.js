@@ -1,14 +1,17 @@
 var _ = require('lodash');
 var initialData = require('../seeds/initial-data');
+var loadAllQuestion = require('../config/fixtures');
 
 function rederIndexPage(req, res, data) {
     res.render('index', data);
 }
 
 function getIndexInfo(req,res) {
-    rederIndexPage(req,res,{
-        data : initialData
-    });
+    loadAllQuestion();
+
+    // rederIndexPage(req,res,{
+    //     data : initialData
+    // });
 }
 
 function getScore(req,res) {

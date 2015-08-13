@@ -5,7 +5,7 @@ function TrueOrFalseTopic(name, question, options, answer, score, type, value) {
 }
 
 TrueOrFalseTopic.prototype = Object.create(Topic.prototype);
-TrueOrFalseTopic.prototype.constructor = SingleChoice;
+TrueOrFalseTopic.prototype.constructor = TrueOrFalseTopic;
 
 TrueOrFalseTopic.prototype.calculationScore = function () {
 
