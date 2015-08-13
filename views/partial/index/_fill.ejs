@@ -1,12 +1,15 @@
-一、填空题<br>
-
-<ol>
-    <% topic.forEach(function(item){ %>
-        <li>
-            <%= item.question%>
-            <% item.options.forEach(function(element,i){ %>
-                <input type="text" name="<%= item.name%>" value="<%= item.value[i]%>">、
+<div class="panel panel-default">
+    <div class="panel-heading">一、填空题</div>
+    <div class="panel-body">
+        <ol>
+            <% topic.forEach(function(item){ %>
+                <li>
+                    <%= item.question%>
+                    <% item.options.forEach(function(element,i){ %>
+                        <input type="text" class="form-control" name="<%= item.name%>" value="<%= item.value[i]%>">、
+                    <%})%><br><br>
+                </li>
             <%})%>
-        </li>
-    <%})%>
-</ol>
+        </ol>
+    </div>
+</div>
