@@ -1,10 +1,13 @@
-五、简答题(每题4分,共20分)
-<br>
-<ol>
-    <% topic.forEach(function(item){ %>
-        <li>
-            <%= item.question%><br>
-            <textarea name="<%= item.name%>" rows="8" cols="40"><%= item.value%></textarea><br>
-        </li>
-    <%})%>
-</ol>
+<div class="panel panel-default">
+    <div class="panel-heading">五、简答题(每题4分,共20分)</div>
+    <div class="panel-body">
+        <ol>
+            <% topic.forEach(function(item){ %>
+                <li>
+                    <%= item.question%><br>
+                    <textarea class="form-control" name="<%= item.name%>" rows="8" cols="40"><%= item.value%></textarea><br>
+                </li>
+            <%})%>
+        </ol>
+    </div>
+</div>
