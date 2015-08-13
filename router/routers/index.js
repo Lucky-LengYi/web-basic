@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var indexController = require('../../controller/index-controller');
 
-router.get('/',function (req,res) {
-    res.render('index');
-});
+router.get('/',indexController.getIndexInfo);
 
-router.post('/',function (req,res) {
-    console.log(req.body);
-    res.render('index');
-});
+router.post('/',indexController.getScore);
 
 module.exports = router;
