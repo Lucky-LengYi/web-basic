@@ -1,9 +1,5 @@
 <%- include('./partial/_head') -%>
-    西安软件服务外包学院
-    <br>
-    统一建模语言理论测试
-    <br>
-    <form class="" action="/" method="post">
+    <form class="container form-inline" action="/" method="post">
         <%- include('./partial/index/_header', {user: userData}) %>
         <%- include('./partial/index/_fill', {topic: data.Fill}) %>
         <%- include('./partial/index/_single-choice', {topic: data.SingleChoice}) %>

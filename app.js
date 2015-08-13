@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({
 
 app.engine('.html', ejs.__express);
 app.use(express.static('public'));
+app.use(express.static('bower_components'));
 app.set('view engine', 'ejs');
 
 var router = require('./router/routes');
