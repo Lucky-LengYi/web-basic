@@ -15,34 +15,38 @@ TopicHelper.prototype.getTopic = function () {
     var topicFactory = new TopicFactory();
 
     data.data.forEach(function (item) {
-        result.push(topicFactory.createInstance(item[0],item[1],item[2],item[3],item[4],item[5],item[6]));
+        topic.push(topicFactory.create(item[0],item[1],item[2],item[3],item[4],item[5],item[6]));
     });
 
     return topic;
 }
 
-TopicHelper.prototype.classify = function (collection) {
-    return _.groupBy(collection, function(item) {
-        return item.type;
-    });
-};
+TopicHelper.prototype.setInputs = function (answerSheet, topics) {
+    topics.forEach(function (item) {
 
-TopicHelper.prototype.gatValue = function (userData,data) {
-    data.forEach(function (item) {
-        if (userData[item.name] !== undefined) {
-            item.formatValue(userData[item.name]);
+        if (answerSheet[item.name] !== undefined) {
+
+            if (!Array.isArray(answerSheet[item.name])) {
+                item.addValue(answerSheet[item.name].split(' '));
+            }else {
+                item.addValue(answerSheet[item.name]);
+            }
+            
         }
     });
 };
 
-TopicHelper.prototype.fractionalStatistics = function (userData,data) {
+TopicHelper.prototype.marker = function (answerSheet, topics) {
     var score = 0;
-    data.forEach(function (item) {
-        if (userData[item.name] !== undefined) {
-            score += item.calculationScore(userData[item.name]);
+
+    topics.forEach(function (item) {
+        if (answerSheet[item.name] !== undefined) {
+            var temp = answerSheet[item.name].toString();
+            score += item.mark(temp);
         }
     });
-    userData.score = score;
+
+    answerSheet.score = score;
 };
 
 module.exports = TopicHelper;
