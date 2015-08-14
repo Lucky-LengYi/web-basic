@@ -1,9 +1,21 @@
 {
     "data": [
-        ["questionOne", "UML 的中文全称是:", [""],
+        ["questionOne", "UML 的中文全称是:", [{
+            "key": null,
+            "val": null
+        }],
             ["统一建模语言"], 1, "Fill", [""]
         ],
-        ["questionTwo", "对象最突出的特征是:", ["", "", ""],
+        ["questionTwo", "对象最突出的特征是:", [{
+            "key": null,
+            "val": null
+        }, {
+            "key": null,
+            "val": null
+        }, {
+            "key": null,
+            "val": null
+        }],
             ["封装", "继承", "多态"], 1, "Fill", ["","",""]
         ],
         ["questionThree", "UML 与软件工程的关系是", [{
@@ -18,7 +30,7 @@
         }, {
             "key": "D",
             "val": "UML 是软件工程的一部分"
-        }], "B", 2, "SingleChoice", ""],
+        }], "B", 2, "SingleChoice", [""]],
         ["questionFour", "Java 语言支持", [{
             "key": "A",
             "val": "单继承"
@@ -31,7 +43,7 @@
         }, {
             "key": "D",
             "val": "单继承和多继承都不支持"
-        }], "A", 2, "SingleChoice", ""],
+        }], "A", 2, "SingleChoice", [""]],
         ["questionFive", "用例的粒度分为以下哪三种。", [{
                 "key": "A",
                 "val": "概述级"
@@ -68,15 +80,18 @@
         }, {
             "key": "false",
             "val": "错误"
-        }], "false", 2, "TrueOrFalse", ""],
+        }], "false", 2, "TrueOrFalse", [""]],
         ["questionEight", "在状态图中,终止状态在一个状态图中允许有任意多个。", [{
             "key": "true",
             "val": "正确"
         }, {
             "key": "false",
             "val": "错误"
-        }], "true", 2, "TrueOrFalse", ""],
-        ["questionNine", "简述什么是模型以及模型的表现形式?", [],
-        "", 5, "ShortAnswer", ""]
+        }], "true", 2, "TrueOrFalse", [""]],
+        ["questionNine", "简述什么是模型以及模型的表现形式?", [{
+            "key": null,
+            "val": null
+        }],
+        "", 5, "ShortAnswer", [""]]
     ]
 }
