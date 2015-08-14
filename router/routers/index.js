@@ -4,9 +4,9 @@ var express = require('express');
 var router = express.Router();
 var IndexController = require('../../controller/index-controller');
 
-var indexController = new indexController();
+var indexController = new IndexController();
 
-router.get('/',indexController.getIndexInfo);
-router.post('/',indexController.getScore);
+router.get('/',indexController.index);
+router.post('/',indexController.submit);
 
 module.exports = router;
