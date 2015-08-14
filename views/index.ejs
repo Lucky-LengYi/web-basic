@@ -3,12 +3,18 @@
     <form class="container form-inline" action="/" method="post"  autocomplete="off">
 
         <%- include('./partial/index/_modal') -%>
+
         <%- include('./partial/index/_header', {user: userData}) %>
-        <%- include('./partial/index/_fill', {topic: data.Fill}) %>
-        <%- include('./partial/index/_single-choice', {topic: data.SingleChoice}) %>
-        <%- include('./partial/index/_multiple-choice', {topic: data.MultipleChoice}) %>
-        <%- include('./partial/index/_true-or-false', {topic: data.TrueOrFalse}) %>
-        <%- include('./partial/index/_short-answer.ejs', {topic: data.ShortAnswer}) %>
+
+        <%- include('./partial/index/_fill', {topic: getFillTopics()}) %>
+
+        <%- include('./partial/index/_single-choice', {topic: getSingleChoiceTopics()}) %>
+
+        <%- include('./partial/index/_multiple-choice', {topic: getMultipleChoiceTopics()}) %>
+
+        <%- include('./partial/index/_true-or-false', {topic: getTrueOrFalseTopics()}) %>
+
+        <%- include('./partial/index/_short-answer.ejs', {topic: getShortAnswerTopics()}) %>
 
         <button id="confirm" type="button" class="btn btn-primary center-block">提交</button>
 
