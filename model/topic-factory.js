@@ -1,3 +1,5 @@
+'use strict';
+
 var FillTopic = require('./fill-topic');
 var MultipleChoiceTopic = require('./multiple-choice-topic');
 var ShortAnswerTopic = require('./short-answer-topic');

@@ -1,3 +1,5 @@
+'use strict';
+
 function Topic(name, question, options, answer, score, type, value) {
     this.name = name;
     this.question = question;
@@ -9,7 +11,7 @@ function Topic(name, question, options, answer, score, type, value) {
 }
 
 Topic.prototype.calculationScore = function () {
-    
+
 };
 
 module.exports = Topic;

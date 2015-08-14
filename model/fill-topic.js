@@ -1,3 +1,5 @@
+'use strict';
+
 var Topic = require('./topic');
 
 function FillTopic(name, question, options, answer, score, type, value) {

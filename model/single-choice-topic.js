@@ -1,3 +1,5 @@
+'use strict';
+
 var Topic = require('./topic');
 
 function SingleChoiceTopic(name, question, options, answer, score, type, value) {
@@ -8,11 +10,10 @@ SingleChoiceTopic.prototype = Object.create(Topic.prototype);
 SingleChoiceTopic.prototype.constructor = SingleChoiceTopic;
 
 SingleChoiceTopic.prototype.calculationScore = function (element) {
-    var result = 0;
     if (element === this.answer) {
-        result = this.score;
+        return this.score;
     }
-    return result;
+    return 0;
 };
 
 SingleChoiceTopic.prototype.formatValue = function (element) {
