@@ -6,27 +6,47 @@ var ShortAnswerTopic = require('./short-answer-topic');
 var SingleChoiceTopic = require('./single-choice-topic');
 var TrueOrFalseTopic = require('./true-or-false-topic');
 var data = require('../seeds/data.json');
+var Utils = require('../lib/utils');
 
 function TopicFactory() {
 
 }
 
-TopicFactory.prototype.createInstance = function (name, question, options, answer, score, type, value) {
+TopicFactory.prototype.create = function (name, question, options, answer, score, type, value) {
+    var topic;
+
     if (type === "Fill") {
-        return new FillTopic(name, question, options, answer, score, type, value);
+        topic = new FillTopic(name, question, answer, score, value);
+
+        options.forEach(function (option) {
+            topic.addOption(option.key,option.val);
+        })
+    }else if (type === "SingleChoice") {
+        topic = new SingleChoiceTopic(name, question, answer, score, value);
+
+        options.forEach(function (option) {
+            topic.addOption(option.key,option.val);
+        })
+    }else if (type === "MultipleChoice") {
+        topic = new MultipleChoiceTopic(name, question, answer, score, value);
+
+        options.forEach(function (option) {
+            topic.addOption(option.key,option.val);
+        })
+    }else if (type === "TrueOrFalse") {
+        topic = new TrueOrFalseTopic(name, question, answer, score, value);
+
+        options.forEach(function (option) {
+            topic.addOption(option.key,option.val);
+        })
+    }else if (type === "ShortAnswer") {
+        topic = new ShortAnswerTopic(name, question, answer, score, value);
+
+        options.forEach(function (option) {
+            topic.addOption(option.key,option.val);
+        })
     }
-    if (type === "SingleChoice") {
-        return new SingleChoiceTopic(name, question, options, answer, score, type, value);
-    }
-    if (type === "MultipleChoice") {
-        return new MultipleChoiceTopic(name, question, options, answer, score, type, value);
-    }
-    if (type === "TrueOrFalse") {
-        return new TrueOrFalseTopic(name, question, options, answer, score, type, value);
-    }
-    if (type === "ShortAnswer") {
-        return new ShortAnswerTopic(name, question, options, answer, score, type, value);
-    }
+    return topic;
 };
 
 module.exports = TopicFactory;

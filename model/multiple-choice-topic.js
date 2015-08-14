@@ -2,28 +2,24 @@
 
 var Topic = require('./topic');
 
-function MultipleChoiceTopic(name, question, options, answer, score, type, value) {
-    Topic.call(this, name, question, options, answer, score, type, value);
+function MultipleChoiceTopic(name, question, answer, score, value) {
+    Topic.call(this, name, question, answer, score, value);
 }
 
 MultipleChoiceTopic.prototype = Object.create(Topic.prototype);
 MultipleChoiceTopic.prototype.constructor = MultipleChoiceTopic;
 
-MultipleChoiceTopic.prototype.calculationScore = function (element) {
-    var temp = element.toString();
-    var judge = temp.length === this.answer.toString().length;
+MultipleChoiceTopic.prototype.mark = function (element) {
+    var isSame = element.length === this.answer.toString().length;
 
+    console.log(element,this.answer);
     this.answer.forEach(function (item) {
-        if (temp.indexOf(item) === -1) {
-            judge = false;
+        if (element.indexOf(item) === -1) {
+            isSame = false;
         }
     });
-
-    if (judge) {
-        return this.score;
-    }else {
-        return 0;
-    }
+    console.log(isSame);
+    return isSame ? this.score : 0;
 };
 
 MultipleChoiceTopic.prototype.formatValue = function (element) {

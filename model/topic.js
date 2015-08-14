@@ -1,16 +1,25 @@
 'use strict';
 
-function Topic(name, question, options, answer, score, type, value) {
+var Option = require('./option')
+
+function Topic(name, question, answer, score, value) {
     this.name = name;
     this.question = question;
-    this.options = options;
     this.answer = answer;
     this.score = score;
-    this.type = type;
+    this.options = [];
     this.value = value;
 }
 
-Topic.prototype.calculationScore = function () {
+Topic.prototype.addOption = function (key, val) {
+    this.options.push(new Option(key, val));
+};
+
+Topic.prototype.addValue = function (value) {
+    this.value = value;
+};
+
+Topic.prototype.mark = function () {
 
 };
 

@@ -2,19 +2,18 @@
 
 var Topic = require('./topic');
 
-function FillTopic(name, question, options, answer, score, type, value) {
-    Topic.call(this, name, question, options, answer, score, type, value);
+function FillTopic(name, question, answer, score, value) {
+    Topic.call(this, name, question, answer, score, value);
 }
 
 FillTopic.prototype = Object.create(Topic.prototype);
 FillTopic.prototype.constructor = FillTopic;
 
-FillTopic.prototype.calculationScore = function (element) {
+FillTopic.prototype.mark = function (element) {
     var result = 0;
-    var temp = element.toString();
     var score = this.score;
     this.answer.forEach(function (item) {
-        if (temp.indexOf(item) !== -1) {
+        if (element.indexOf(item) !== -1) {
             result += score;
         }
     });
