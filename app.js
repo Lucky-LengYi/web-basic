@@ -3,7 +3,7 @@ var app = express();
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 app.engine('.html', ejs.__express);
