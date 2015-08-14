@@ -6,21 +6,23 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-body text-center">
+        <div class="panel-body">
             <div class="row">
                 <div class="col-md-4 form-group">
                     <label for="">科目:
                     </label>
-                    <input disabled="disabled" class="form-control" name="subject" type="text" value="统 一 建 模 语 言 UML">
+                    统一建模语言UML
                 </div>
                 <div class="col-md-4 form-group">
                     <label for="">时间:
                     </label>
-                    <input disabled="disabled" class="form-control" name="time" type="text" value="100分钟"></div>
+                    100分钟
+                </div>
                 <div class="col-md-4 form-group">
                     <label for="">得分:
                     </label>
-                    <input name="score" class="form-control" readonly="readonly" type="text" value="<%= userData.score%>"></div>
+                    <span class="text-danger"><%= userData.score%></span>
+                </div>
             </div> <br>
             <div class="row">
                 <div class="col-md-4 form-group">

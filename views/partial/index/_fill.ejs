@@ -6,7 +6,7 @@
                 <li>
                     <%= item.question%>
                     <% item.options.forEach(function(element,i){ %>
-                        <input type="text" class="form-control" name="<%= item.name%>" value="<%= item.value[i]%>">、
+                        <input type="text" class="form-control" name="<%= item.name%>" value="<%= item.value[i]%>">
                     <%})%><br><br>
                 </li>
             <%})%>

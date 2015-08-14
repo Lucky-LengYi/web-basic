@@ -7,7 +7,7 @@
                     <%= item.question%><br>
                     <% item.options.forEach(function(element,i){ %>
                         <input type="radio" name="<%= item.name%>" value="<%= element.key%>"
-                        <% if(item.value===element.key){ %> checked="checked" <% } %>><%= element.val%>
+                        <% if(item.value.indexOf(element.key) !== -1){ %> checked="checked" <% } %>><%= element.val%>
                     <%})%>
                 </li><br>
             <%})%>
