@@ -1,44 +1,35 @@
 'use strict';
 
-var loadAllQuestion = require('../config/fixtures');
 var initialData = require('../seeds/initial-data');
 var TopicHelper = require('../helper/topic-helper');
+var IndexViewModel = require('../view-models/index');
 
 function IndexController(argument) {
 
 }
 
-function renderIndexPage(req, res, data) {
-    res.render('index', data);
-}
-
-IndexController.index = function(req, res) {
+IndexController.prototype.index = function(req, res) {
 
     var topicHelper = new TopicHelper();
-    var topic = topicHelper.getTopic();
-    
-    data = helperTopic.classify(data);
+    var topics = topicHelper.getTopic();
 
-    renderIndexPage(req, res, {
-        userData: initialData,
-        data: data
-    });
+    var viewModel = new IndexViewModel(topics, initialData);
+
+    res.render('index', viewModel);
 }
 
-IndexController.submit = function(req, res) {
-    var data = loadAllQuestion();
-    var userData = req.body;
-    var helperTopic = new HelperTopic();
+IndexController.prototype.submit = function(req, res) {
 
-    helperTopic.fractionalStatistics(userData,data);
-    helperTopic.gatValue(userData,data);
+    var topicHelper = new TopicHelper();
+    var topics = topicHelper.getTopic();
 
-    data = helperTopic.classify(data);
+    var answerSheet = req.body;
+    topicHelper.marker(answerSheet, topics);
+    topicHelper.setInputs(answerSheet, topics);
 
-    renderIndexPage(req, res, {
-        userData: userData,
-        data:data
-    });
+    var viewModel = new IndexViewModel(topics, answerSheet);
+
+    res.render('index', viewModel);
 }
 
 module.exports = IndexController;
