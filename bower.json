@@ -15,6 +15,7 @@
   "homepage": "https://github.com/Lucky-LengYi/web-basic",
   "dependencies": {
     "lodash": "~3.10.1",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4"
   }
 }
