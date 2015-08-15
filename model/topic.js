@@ -20,7 +20,7 @@ Topic.prototype.addValue = function (value) {
 };
 
 Topic.prototype.mark = function () {
-
+    //need to rewrite
 };
 
 module.exports = Topic;
