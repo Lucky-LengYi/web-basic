@@ -19,31 +19,31 @@ TopicFactory.prototype.create = function (name, question, options, answer, score
         topic = new FillTopic(name, question, answer, score, value);
 
         options.forEach(function (option) {
-            topic.addOption(option.key,option.val);
+            topic.addOption(option.title,option.val);
         })
     }else if (type === "SingleChoice") {
         topic = new SingleChoiceTopic(name, question, answer, score, value);
 
         options.forEach(function (option) {
-            topic.addOption(option.key,option.val);
+            topic.addOption(option.title,option.val);
         })
     }else if (type === "MultipleChoice") {
         topic = new MultipleChoiceTopic(name, question, answer, score, value);
 
         options.forEach(function (option) {
-            topic.addOption(option.key,option.val);
+            topic.addOption(option.title,option.val);
         })
     }else if (type === "TrueOrFalse") {
         topic = new TrueOrFalseTopic(name, question, answer, score, value);
 
         options.forEach(function (option) {
-            topic.addOption(option.key,option.val);
+            topic.addOption(option.title,option.val);
         })
     }else if (type === "ShortAnswer") {
         topic = new ShortAnswerTopic(name, question, answer, score, value);
 
         options.forEach(function (option) {
-            topic.addOption(option.key,option.val);
+            topic.addOption(option.title,option.val);
         })
     }
     return topic;
