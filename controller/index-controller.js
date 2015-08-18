@@ -1,6 +1,5 @@
 'use strict';
 
-var initialData = require('../seeds/initial-data');
 var TopicHelper = require('../helper/topic-helper');
 var IndexViewModel = require('../view-models/index');
 
@@ -13,7 +12,7 @@ IndexController.prototype.index = function(req, res) {
     var topicHelper = new TopicHelper();
     var topics = topicHelper.getTopic();
 
-    var viewModel = new IndexViewModel(topics, initialData);
+    var viewModel = new IndexViewModel(topics);
 
     res.render('index', viewModel);
 }

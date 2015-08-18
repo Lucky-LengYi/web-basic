@@ -6,9 +6,16 @@ var MultipleChoiceTopic = require('../model/multiple-choice-topic');
 var TrueOrFalseTopic = require('../model/true-or-false-topic');
 var ShortAnswerTopic = require('../model/short-answer-topic');
 
+var initialData = {
+    "score": 0,
+    "stuClass": "",
+    "stuId": "",
+    "stuName": ""
+};
+
 function IndexViewModel(topics,userData) {
     this.topics = topics;
-    this.userData = userData;
+    this.userData = userData || initialData;
 }
 
 IndexViewModel.prototype.getFillTopics = function() {
