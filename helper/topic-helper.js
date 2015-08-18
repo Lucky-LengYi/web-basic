@@ -3,7 +3,17 @@
 var data = require('../seeds/data');
 var TopicFactory = require('../model/topic-factory');
 var _ = require('lodash');
+var mysql = require('mysql');
+var config = require('../config/config');
 
+function getConnection() {
+    return mysql.createConnection({
+        host: config.host,
+        user: config.user,
+        password: config.password,
+        database: config.database
+    });
+}
 
 function TopicHelper() {
 
@@ -11,7 +21,16 @@ function TopicHelper() {
 
 TopicHelper.prototype.getTopic = function () {
     var topic = [];
+    var conn = getConnection();
 
+    conn.connect();
+
+    var selectQuestionSql = 'select * from question'
+    conn.query(selectQuestionSql, function(err, rows) {
+
+    });
+
+    conn.end();
     var topicFactory = new TopicFactory();
 
     data.data.forEach(function (item) {
@@ -31,7 +50,7 @@ TopicHelper.prototype.setInputs = function (answerSheet, topics) {
             }else {
                 item.addValue(answerSheet[item.name]);
             }
-            
+
         }
     });
 };
