@@ -11,8 +11,13 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
+    "execsql": "0.0.3",
     "express": "^4.13.3",
     "lodash": "^3.10.1",
     "mysql": "^2.8.0"
+  },
+  "devDependencies": {
+    "async": "^1.4.2",
+    "gulp": "^3.9.0"
   }
 }
