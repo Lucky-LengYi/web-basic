@@ -49,7 +49,6 @@ function loadAllQuestion(callBack) {
                 });
 
                 questions.forEach(function (item) {
-                    console.log(options);
                     item.options = options[item.id.toString()];
                 })
                 callback(null, questions);
