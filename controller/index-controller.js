@@ -8,13 +8,13 @@ function IndexController(argument) {
 }
 
 IndexController.prototype.index = function(req, res) {
-
     var topicHelper = new TopicHelper();
-    var topics = topicHelper.getTopic();
 
-    var viewModel = new IndexViewModel(topics);
-
-    res.render('index', viewModel);
+    topicHelper.getTopic(function (topics) {
+        var viewModel = new IndexViewModel(topics);
+        console.log(topics[3].options);
+        res.render('index', viewModel);
+    });
 }
 
 IndexController.prototype.submit = function(req, res) {

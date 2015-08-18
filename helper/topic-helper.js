@@ -4,7 +4,8 @@ var data = require('../seeds/data');
 var TopicFactory = require('../model/topic-factory');
 var _ = require('lodash');
 var mysql = require('mysql');
-var config = require('../config/config');
+var config = require('../config/database');
+var async = require('async');
 
 function getConnection() {
     return mysql.createConnection({
@@ -15,29 +16,67 @@ function getConnection() {
     });
 }
 
+function loadAllQuestion(callBack) {
+
+    async.waterfall([
+        function(callback) {
+            var conn = getConnection();
+            var questions = [];
+            var selectQuestionSql = 'select * from question';
+
+            conn.connect();
+            conn.query(selectQuestionSql, function(err, rows) {
+                rows.forEach(function (item) {
+                    var temp = item;
+                    temp.answer = temp.answer.split(' ');
+                    temp.value = [];
+                    questions.push(temp);
+                });
+                callback(null, questions);
+            });
+
+            conn.end();
+        },
+
+        function(questions,callback) {
+            var conn = getConnection();
+            conn.connect();
+
+            var selectOptionSql = 'select * from options';
+            conn.query(selectOptionSql, function(err, rows) {
+                var options = _.groupBy(rows,function (item) {
+                    return item.question_id;
+                });
+
+                questions.forEach(function (item) {
+                    console.log(options);
+                    item.options = options[item.id.toString()];
+                })
+                callback(null, questions);
+            });
+
+            conn.end();
+        }
+    ], function(err, result) {
+        callBack(result);
+    });
+}
+
 function TopicHelper() {
 
 }
 
-TopicHelper.prototype.getTopic = function () {
-    var topic = [];
+TopicHelper.prototype.getTopic = function (callback) {
     var conn = getConnection();
-
-    conn.connect();
-
-    var selectQuestionSql = 'select * from question'
-    conn.query(selectQuestionSql, function(err, rows) {
-
-    });
-
-    conn.end();
     var topicFactory = new TopicFactory();
-
-    data.data.forEach(function (item) {
-        topic.push(topicFactory.create(item[0],item[1],item[2],item[3],item[4],item[5],item[6]));
+    loadAllQuestion(function (topics) {
+        var topic = [];
+        topics.forEach(function (item) {
+            topic.push(topicFactory.create(item.name,item.question,item.options,item.answer,item.score,item.classes,item.value));
+        });
+        callback(topic);
     });
 
-    return topic;
 }
 
 TopicHelper.prototype.setInputs = function (answerSheet, topics) {
