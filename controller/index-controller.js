@@ -12,23 +12,21 @@ IndexController.prototype.index = function(req, res) {
 
     topicHelper.getTopic(function (topics) {
         var viewModel = new IndexViewModel(topics);
-        console.log(topics[3].options);
         res.render('index', viewModel);
     });
 }
 
 IndexController.prototype.submit = function(req, res) {
-
     var topicHelper = new TopicHelper();
-    var topics = topicHelper.getTopic();
-
     var answerSheet = req.body;
-    topicHelper.marker(answerSheet, topics);
-    topicHelper.setInputs(answerSheet, topics);
 
-    var viewModel = new IndexViewModel(topics, answerSheet);
+    topicHelper.getTopic(function (topics) {
+        topicHelper.marker(answerSheet, topics);
+        topicHelper.setInputs(answerSheet, topics);
 
-    res.render('index', viewModel);
+        var viewModel = new IndexViewModel(topics, answerSheet);
+        res.render('index', viewModel);
+    });
 }
 
 module.exports = IndexController;
