@@ -10,7 +10,7 @@ TrueOrFalseTopic.prototype = Object.create(Topic.prototype);
 TrueOrFalseTopic.prototype.constructor = TrueOrFalseTopic;
 
 TrueOrFalseTopic.prototype.mark = function (element) {
-    return element === this.answer ? this.score : 0;
+    return element === this.answer.toString() ? this.score : 0;
 };
 
 TrueOrFalseTopic.prototype.formatValue = function (element) {
