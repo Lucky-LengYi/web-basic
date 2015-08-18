@@ -26,7 +26,7 @@ function loadAllQuestion(callBack) {
 
             conn.connect();
             conn.query(selectQuestionSql, function(err, rows) {
-                rows.forEach(function (item) {
+                rows.forEach(function(item) {
                     var temp = item;
                     temp.answer = temp.answer.split(' ');
                     temp.value = [];
@@ -38,17 +38,17 @@ function loadAllQuestion(callBack) {
             conn.end();
         },
 
-        function(questions,callback) {
+        function(questions, callback) {
             var conn = getConnection();
             conn.connect();
 
             var selectOptionSql = 'select * from options';
             conn.query(selectOptionSql, function(err, rows) {
-                var options = _.groupBy(rows,function (item) {
+                var options = _.groupBy(rows, function(item) {
                     return item.question_id;
                 });
 
-                questions.forEach(function (item) {
+                questions.forEach(function(item) {
                     item.options = options[item.id.toString()];
                 })
                 callback(null, questions);
@@ -65,27 +65,27 @@ function TopicHelper() {
 
 }
 
-TopicHelper.prototype.getTopic = function (callback) {
+TopicHelper.prototype.getTopic = function(callback) {
     var conn = getConnection();
     var topicFactory = new TopicFactory();
-    loadAllQuestion(function (topics) {
+    loadAllQuestion(function(topics) {
         var topic = [];
-        topics.forEach(function (item) {
-            topic.push(topicFactory.create(item.name,item.question,item.options,item.answer,item.score,item.classes,item.value));
+        topics.forEach(function(item) {
+            topic.push(topicFactory.create(item.name, item.question, item.options, item.answer, item.score, item.classes, item.value));
         });
         callback(topic);
     });
 
 }
 
-TopicHelper.prototype.setInputs = function (answerSheet, topics) {
-    topics.forEach(function (item) {
+TopicHelper.prototype.setInputs = function(answerSheet, topics) {
+    topics.forEach(function(item) {
 
         if (answerSheet[item.name] !== undefined) {
 
             if (!Array.isArray(answerSheet[item.name])) {
                 item.addValue(answerSheet[item.name].split(' '));
-            }else {
+            } else {
                 item.addValue(answerSheet[item.name]);
             }
 
@@ -93,10 +93,10 @@ TopicHelper.prototype.setInputs = function (answerSheet, topics) {
     });
 };
 
-TopicHelper.prototype.marker = function (answerSheet, topics) {
+TopicHelper.prototype.marker = function(answerSheet, topics) {
     var score = 0;
 
-    topics.forEach(function (item) {
+    topics.forEach(function(item) {
         if (answerSheet[item.name] !== undefined) {
             var temp = answerSheet[item.name].toString();
             score += item.mark(temp);
